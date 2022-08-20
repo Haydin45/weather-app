@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import DateBody from "./component/date-body/DateBody";
+import Header from "./component/header/Header";
+import { HeaderProvider } from "./context/header/HeaderContext";
+import { WeatherProvider } from "./context/weather/WeatherContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WeatherProvider>
+      <div className="App">
+        <HeaderProvider>
+          <Header />
+        </HeaderProvider>
+
+        <DateBody />
+      </div>
+    </WeatherProvider>
   );
 }
 
